@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eaf7e2;
+  color: #2e4b3d;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #2c6e2f;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  user-select: none;
+}
+#forum-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: default;
+}
+nav {
+  display: flex;
+  gap: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+nav a:hover,
+nav a:focus {
+  background-color: #1b4332;
+  outline: none;
+}
+
+/* Área principal */
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 20px auto 40px;
+  padding: 15px 20px;
+  background-color: #f0f9f1;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 100, 50, 0.1);
+}
+
+/* Área de postagens */
+#postagens {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #95d5b2;
+  padding: 15px;
+  background: white;
+  scroll-behavior: smooth;
+}
+
+/* Estilo das postagens com animação */
+.postagem {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c3ddc8;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+.postagem p {
+  margin: 0 0 6px 0;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  color: #264653;
+}
+.postagem a {
+  color: #2a9d8f;
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-word;
+}
+.postagem a:hover,
+.postagem a:focus {
+  text-decoration: underline;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+textarea, input[type=url] {
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 2px solid #95d5b2;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+}
+textarea:focus, input[type=url]:focus {
+  border-color: #40916c;
+  outline: none;
+  box-shadow: 0 0 6px #40916caa;
+}
+button {
+  background-color: #2d6a4f;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+button:hover, button:focus {
+  background-color: #1b4332;
+  outline: none;
+  box-shadow: 0 0 8px #1b4332cc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    margin: 15px 10px 30px;
+    padding: 10px 15px;
+    width: 95%;
+  }
+  nav {
+    gap: 10px;
+  }
+}

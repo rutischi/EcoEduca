@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoEduca</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Materiais Educativos</a></li>
+        <li><a href="forum.html">Troca de Conhecimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Seção de Boas-Vindas -->
+    <section>
+      <h1>Bem-vindo ao EcoEduca!</h1>
+      <p>Aprenda sobre sustentabilidade, mudanças climáticas e como pode contribuir para a preservação do planeta.</p>
+    </section>
+
+    <!-- Seção de Materiais Educativos com links nos cards -->
+    <section>
+      <h2>Materiais Educativos</h2>
+      <div class="cards">
+        <a href="https://www.wwf.org.br/nossosconteudos/conceitos_/efeitoestufa_e_mudancasclimaticas/" class="card" target="_blank" rel="noopener noreferrer">
+          <h3>Mudanças Climáticas</h3>
+          <p>Entenda as causas e consequências das mudanças climáticas.</p>
+        </a>
+        <a href="https://www.reciclasampa.com.br/artigo/como-reciclar-o-lixo-corretamente" class="card" target="_blank" rel="noopener noreferrer">
+          <h3>Reciclagem</h3>
+          <p>Aprenda como a reciclagem pode reduzir o impacto ambiental e o desperdício de recursos.</p>
+        </a>
+        <a href="https://mundoeducacao.uol.com.br/biologia/preservacao-ambiental.htm" class="card" target="_blank" rel="noopener noreferrer">
+          <h3>Conservação de Recursos Naturais</h3>
+          <p>Saiba como podemos conservar os recursos naturais do planeta.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Seção de Contato Ruti RU= 4250252 -->
+    <section id="contato" class="contato">
+      <h2>Entre em Contato</h2>
+      <form id="form-contato">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+      <p id="mensagem-envio" style="display: none; color: green; margin-top: 10px;">
+        Sua mensagem foi enviada com sucesso! ✅
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

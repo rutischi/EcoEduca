@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EcoEduca - Fórum de Troca de Conhecimentos</title>
+
+<!-- Fonte Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #eaf7e2; /* fundo verde claro da index */
+    color: #2e4b3d; /* texto verde escuro da index */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    background-color: #2c6e2f; /* verde escuro do header index */
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgb(44 110 47 / 0.3);
+  }
+  #forum-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 20px;
+    padding: 8px 14px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    background-color: #256027; 
+    outline: none;
+  }
+
+  main {
+    flex-grow: 1;
+    max-width: 720px;
+    margin: 30px auto 50px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgb(46 75 61 / 0.12);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px;
+  }
+
+  #postagens {
+    flex-grow: 1;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 25px;
+  }
+
+  /* Scroll customizado */
+  #postagens::-webkit-scrollbar {
+    width: 8px;
+  }
+  #postagens::-webkit-scrollbar-track {
+    background: #d5ecd1; /* verde claro suave */
+    border-radius: 8px;
+  }
+  #postagens::-webkit-scrollbar-thumb {
+    background: #2c6e2f; /* verde escuro do header */
+    border-radius: 8px;
+  }
+
+  .postagem {
+    max-width: 80%;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgb(44 110 47 / 0.15);
+    animation: fadeIn 0.3s ease forwards;
+    word-wrap: break-word;
+  }
+  .postagem p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #2e4b3d;
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+  }
+  .postagem a {
+    color: #256027;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .postagem a:hover, .postagem a:focus {
+    text-decoration: underline;
+  }
+
+  /* Bolhas do chat com tons verd*/
+  .postagem:nth-child(odd) {
+    background: #d5ecd1; /* verde claro suave */
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .postagem:nth-child(even) {
+    background: #a9d18e; /* verde médio suave */
+    color: #1d3c15;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #2e4b3d;
+  }
+  textarea, input[type=url] {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1rem;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid #a9d18e; /* verde médio */
+    margin-bottom: 15px;
+    resize: vertical;
+    transition: border-color 0.25s ease;
+  }
+  textarea:focus, input[type=url]:focus {
+    border-color: #256027; /* verde escuro */
+    outline: none;
+    box-shadow: 0 0 8px #256027aa;
+  }
+
+  button {
+    background-color: #2c6e2f;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 14px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgb(44 110 47 / 0.3);
+  }
+  button:hover, button:focus {
+    background-color: #256027;
+    outline: none;
+    box-shadow: 0 6px 18px rgb(37 96 39 / 0.6);
+  }
+
+  /* Responsividade */
+  @media (max-width: 600px) {
+    main {
+      margin: 20px 15px 40px;
+      padding: 20px;
+      max-width: 100%;
+    }
+    nav a {
+      margin-left: 10px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+    #postagens {
+      max-height: 380px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div id="forum-title" aria-label="Título do fórum">Fórum de Troca de Conhecimentos - EcoEduca</div>
+  <nav aria-label="Menu principal">
+    <a href="index.html" title="Ir para Início">Início</a>
+    <a href="index.html#materiais-educativos" title="Ir para Materiais Educativos">Materiais Educativos</a>
+    <a href="index.html#contato" title="Ir para Contato">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <div id="postagens" aria-live="polite" aria-label="Postagens do fórum">
+    <!-- Postagens aparecerão aqui -->
+  </div>
+
+  <form id="form-forum" aria-label="Formulário para nova postagem">
+    <label for="texto">Texto da postagem (anônima):</label>
+    <textarea id="texto" name="texto" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
+
+    <label for="link">Link para compartilhar (opcional):</label>
+    <input type="url" id="link" name="link" placeholder="https://exemplo.com" />
+
+    <button type="submit">Publicar</button>
+  </form>
+</main>
+
+<script>
+  const postagensDiv = document.getElementById('postagens');
+  const formForum = document.getElementById('form-forum');
+
+  function carregarPostagens() {
+    postagensDiv.innerHTML = '';
+    let postagens = JSON.parse(localStorage.getItem('postagensEcoEduca')) || [];
+
+    postagens.sort((a, b) => a.timestamp - b.timestamp);
+
+    if(postagens.length === 0) {
+      postagensDiv.innerHTML = '<p style="color:#555; text-align:center;">Nenhuma postagem ainda. Seja o primeiro!</p>';
+      return;
+    }
+
+    postagens.forEach((p, i) => {
+      const div = document.createElement('div');
+      div.classList.add('postagem');
+      div.style.animationDelay = (i * 0.1) + 's';
+
+      const textoP = document.createElement('p');
+      textoP.textContent = p.texto;
+      div.appendChild(textoP);
+
+      if(p.link) {
+        const linkA = document.createElement('a');
+        linkA.href = p.link;
+        linkA.target = '_blank';
+        linkA.rel = 'noopener noreferrer';
+        linkA.textContent = p.link;
+        div.appendChild(linkA);
+      }
+
+      postagensDiv.appendChild(div);
+    });
+
+    postagensDiv.scrollTo({ top: postagensDiv.scrollHeight, behavior: 'smooth' });
+  }
+
+  carregarPostagens();
+
+  formForum.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const texto = formForum.texto.value.trim();
+    const link = formForum.link.value.trim();
+
+    if (!texto) {
+      alert('Por favor, escreva um texto para a postagem.');
+      return;
+    }
+
+    let postagens = JSON.parse(localStorage.getItem('postagensEcoEduca')) || [];
+    postagens.push({
+      texto,
+      link: link || null,
+      timestamp: Date.now()
+    });
+
+    localStorage.setItem('postagensEcoEduca', JSON.stringify(postagens));
+
+    carregarPostagens();
+    formForum.reset();
+    formForum.texto.focus();
+  });
+</script>
+
+</body>
+</html>

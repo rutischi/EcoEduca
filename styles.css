@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #eaf7e2; /* verde claro */
+  color: #2e4b3d; /* verde escuro */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #2c6e2f;
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #1b4332;
+  outline: none;
+  box-shadow: 0 0 6px #1b4332aa;
+}
+
+/* Conteúdo principal */
+main {
+  flex-grow: 1;
+  padding: 30px 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Títulos */
+h1, h2 {
+  color: #2c6e2f;
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-shadow: 1px 1px 1px #cbe1c5;
+}
+
+/* Card */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  width: 280px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  outline: none;
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  color: #1b4332;
+}
+
+.card p {
+  color: #406343;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Formulário do fórum */
+#forum {
+  max-width: 700px;
+  margin: 20px auto 60px; /*próximo aos cards */
+  padding: 15px 20px;
+  background-color: #f0f9f1;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 100, 50, 0.1);
+  text-align: left;
+}
+
+#forum h2 {
+  text-align: center;
+  color: #2d6a4f;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#form-forum label {
+  font-weight: 600;
+  color: #1b4332;
+  display: block;
+  margin-bottom: 6px;
+}
+
+#form-forum textarea,
+#form-forum input[type="url"] {
+  width: 100%;
+  padding: 14px 12px;
+  border: 2px solid #95d5b2;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+#form-forum textarea:focus,
+#form-forum input[type="url"]:focus {
+  border-color: #40916c;
+  outline: none;
+  box-shadow: 0 0 6px #40916caa;
+}
+
+#form-forum button {
+  background-color: #2d6a4f;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  font-size: 1.15rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-weight: 700;
+  user-select: none;
+}
+
+#form-forum button:hover,
+#form-forum button:focus {
+  background-color: #1b4332;
+  outline: none;
+  box-shadow: 0 0 8px #1b4332cc;
+}
+
+/* Estilo dos posts */
+#postagens {
+  margin-top: 35px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.postagem {
+  background-color: #f7fcf6;
+  border: 1px solid #95d5b2;
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  word-wrap: break-word;
+  font-size: 1rem;
+  color: #264653;
+  line-height: 1.5;
+}
+
+.postagem p {
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+}
+
+.postagem a {
+  color: #2a9d8f;
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.postagem a:hover,
+.postagem a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/*SEÇÃO DE CONTATO COMPACTA*/
+.contato {
+  max-width: 500px;
+  margin: 30px auto;          /*  vertical reduzida */
+  background-color: #ffffff;
+  padding: 15px 20px;         /* reduzido */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.contato h2 {
+  color: #2c6e2f;
+  margin-bottom: 12px;        
+  font-size: 1.6rem;          
+}
+
+.contato label {
+  display: block;
+  margin-bottom: 4px;         
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.contato input,
+.contato textarea {
+  width: 100%;
+  padding: 8px 10px;         
+  margin-bottom: 10px;        
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.contato textarea {
+  height: 80px;               /* text menor */
+}
+
+.contato button {
+  background-color: #2c6e2f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  font-weight: 700;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.contato button:hover,
+.contato button:focus {
+  background-color: #256027;
+  outline: none;
+  box-shadow: 0 0 8px #1b4332cc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  #postagens {
+    max-height: 300px;
+  }
+}
